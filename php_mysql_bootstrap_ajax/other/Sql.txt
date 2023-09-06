@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS `testworkinline`;
+
+CREATE TABLE `testworkinline`.`post` (`user_id` INT(50) NOT NULL , `id` INT(50) NOT NULL AUTO_INCREMENT , `title` TEXT NOT NULL , `body` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `testworkinline`.`сomments` (`post_id` INT(20) NOT NULL , `id_comment` INT(20) NOT NULL AUTO_INCREMENT , `name` TEXT NOT NULL , `Email` TEXT NOT NULL , `body_comment` TEXT NOT NULL , PRIMARY KEY (`id_comment`), INDEX (`post_id`)) ENGINE = InnoDB;
+
+ALTER TABLE `сomments` ADD FOREIGN KEY (`post_id`) REFERENCES `post`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+SELECT `post`.`title`, `сomments`.`body_comment` FROM `post` CROSS JOIN `сomments` ON `post`.`id` = `сomments`.`post_id` WHERE `сomments`.`body_comment` LIKE '%voluptatem%';
