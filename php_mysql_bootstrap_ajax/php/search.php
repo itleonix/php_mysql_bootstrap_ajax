@@ -2,7 +2,7 @@
 	$text_search = htmlspecialchars($_POST["search"]);				//Получение введенного значения в поле поиска
 
             														//Подключение к локальной БД Mysql, в случае неудачи выведется сообщение
-    $connect = new mysqli("localhost:8889", "leonix", "", "testworkinline");
+    $connect = new mysqli("localhost:8889", "*******", "", "********");
     if($connect->connect_error){
         die("Error: " . $connect->connect_error);
     }
